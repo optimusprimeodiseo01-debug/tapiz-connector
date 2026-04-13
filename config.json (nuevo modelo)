@@ -1,0 +1,12 @@
+{
+  "id": "neuron_01",
+  "mode": "reward_node",
+
+  "reward_box": {
+    "key": "TAPIZ_KEY_001",
+    "value_per_hit": 1,
+    "currency": "tapiz_unit"
+  },
+
+  "wallet": "0x726eE3B86EC2acEE871eC5D02D19Df40B623fdf9"
+}
