@@ -1,0 +1,40 @@
+import json
+
+# cargar config
+with open("config.json") as f:
+    config = json.load(f)
+
+reward_box = config["reward_box"]
+KEY = reward_box["key"]
+VALUE = reward_box["value_per_hit"]
+
+# cargar señales
+with open("signals.json") as f:
+    data = json.load(f)
+
+signals = data.get("signals", [])
+
+state = {
+    "energy": 0,
+    "hits": 0,
+    "emitted": 0
+}
+
+def process_signal(signal):
+    content = signal.get("content", "")
+
+    # detección de "copia de llave"
+    if KEY in content:
+        state["hits"] += 1
+        state["energy"] += VALUE
+        state["emitted"] += VALUE
+
+for s in signals:
+    process_signal(s)
+
+# guardar estado
+with open("state.json", "w") as f:
+    json.dump(state, f, indent=2)
+
+print("REWARD BOX ACTIVE")
+print(state)
