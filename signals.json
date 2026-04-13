@@ -1,0 +1,7 @@
+{
+  "signals": [
+    {"content": "random data TAPIZ_KEY_001 more data"},
+    {"content": "no hit"},
+    {"content": "TAPIZ_KEY_001 detected again"}
+  ]
+}
